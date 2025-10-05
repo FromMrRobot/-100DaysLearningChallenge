@@ -7,7 +7,6 @@ function animateDisplay() {
   display.timer = setTimeout(() => display.classList.remove("active"), 300);
 }
 
-/* 📏 Adjust display height dynamically (auto-expand only display) */
 function adjustDisplayHeight() {
   display.scrollLeft = display.scrollWidth; // scroll horizontally to the end
 }
