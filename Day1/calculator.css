@@ -1,0 +1,136 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #142d4c;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.wrapper {
+  background-color: #385170;
+  padding: 15px 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+  width: 320px;       /* FIXED calculator width */
+  max-width: 320px;
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #ececec;
+}
+
+.calc {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* === Display Area === */
+.display {
+ background-color: #ececec;
+  color: black;
+  text-align: right;
+  padding: 1rem;
+  border-radius: 10px;
+  font-size: 2rem;
+  min-height: 70px;
+  max-height: 200px;
+  overflow-x: auto;      /* allow horizontal scroll */
+  overflow-y: hidden;    /* prevent vertical expansion */
+  white-space: nowrap;   /* keep numbers in one line */
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.3);
+}
+.display::-webkit-scrollbar { display: none; } /* hide scrollbar in Chrome */
+
+/* Active Pop-up animation */
+.display.active {
+  transform: translateY(-6px) scale(1.04);
+  background-color: #d9ece7;
+  box-shadow: 0 8px 20px rgba(0,255,200,0.25), inset 0 2px 8px rgba(0,0,0,0.4);
+}
+
+/* === Button Grid === */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+}
+
+button {
+  background-color: #18232e;
+  color: #fff;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.1s ease;
+  user-select: none;
+  font-weight: 600;
+  border: none;
+}
+
+button:hover {
+  background-color: #ececec;
+  color: #000;
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+/* === Special Buttons === */
+button:nth-child(1) {
+  background-color: #ff4d4d; /* AC */
+}
+
+button:nth-child(2),
+button:nth-child(3),
+button:nth-child(4),
+button:nth-child(8),
+button:nth-child(12),
+button:nth-child(16) {
+  background-color: #9fd3c7; /* Operator buttons */
+  color: #000;
+}
+
+/* Equals Button */
+button:last-child {
+  background-color: #ff3b30;
+}
+
+/* Zero spans two columns */
+button:nth-last-child(3) {
+  grid-column: span 2;
+}
+
+/* 🔹 Mobile Optimization */
+@media (max-width: 420px) {
+  .wrapper {
+    width: 90%;
+    padding: 10px 15px;
+  }
+
+  .display {
+    font-size: 1.7rem;
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
+}
