@@ -1,0 +1,129 @@
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: "Fira Code", monospace;
+  background: #155263;
+  color: #ffc93c;
+}
+
+h1 {
+  text-align: center;
+  color: #ffc93c;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+input, button {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: 0.2s;
+}
+
+input {
+  background: rgba(255, 201, 60, 0.1);
+  color: #ffc93c;
+  width: 120px;
+  text-align: center;
+}
+
+input:focus {
+  outline: 2px solid #ff9a3c;
+  background: rgba(255, 201, 60, 0.2);
+}
+
+button {
+  background: linear-gradient(135deg, #ff6f3c, #ff9a3c);
+  color: #155263;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #ff9a3c, #ffc93c);
+  transform: translateY(-2px);
+}
+
+.list-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 40px 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+}
+
+svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.node {
+  background: rgba(255, 154, 60, 0.25);
+  border-radius: 12px;
+  border: 2px solid #ff6f3c;
+  width: 180px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+  transition: 0.2s;
+}
+
+.node:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.5);
+  background: rgba(255, 154, 60, 0.4);
+}
+
+.top-row {
+  display: flex;
+  border-bottom: 2px solid #ff9a3c;
+  height: 50px;
+}
+
+.top-cell {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #ffc93c;
+}
+
+.top-cell:not(:last-child) {
+  border-right: 2px solid #ff9a3c;
+}
+
+.bottom-row {
+  text-align: center;
+  padding: 8px 0;
+  font-size: 0.9rem;
+  color: #ff6f3c;
+}
+
+@media (max-width: 600px) {
+  .list-container {
+    justify-content: center;
+    gap: 30px 20px;
+  }
+  .node {
+    width: 150px;
+  }
+  input {
+    width: 100px;
+  }
+}
