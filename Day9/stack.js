@@ -15,7 +15,7 @@ class stack {
         return this.item[this.item.length - 1];
     }
 
-    getSize() {
+    size() {
         return this.item.length;
     }
 
@@ -45,7 +45,7 @@ st.push(30);
 st.push(492);
 
 print(st);        
-console.log(st.getSize()); 
+console.log(st.Size()); 
 
 st.pop();           
 print(st);          
