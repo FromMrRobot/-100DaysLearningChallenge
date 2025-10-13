@@ -30,12 +30,14 @@ class stack {
     }
 }
 
-function print(obj) { 
+function iterate(obj) { 
     let s = obj.clone(); 
+    let res=""
     while (!s.isEmpty()) {
-        console.log(s.peek() + " "); 
+        res+=(s.peek() + " "); 
         s.pop();
     }
+    return res
 }
 
 // Usage
@@ -43,9 +45,7 @@ const st = new stack();
 st.push(20);
 st.push(30);
 st.push(492);
-
-print(st);        
-console.log(st.Size()); 
-
+console.log("Stack: "+iterate(st)); 
+console.log(`Size of stack ${st.size()}`); 
 st.pop();           
-print(st);          
+console.log("Stack: "+iterate(st)); 
