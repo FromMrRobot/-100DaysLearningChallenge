@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Example HTML document demonstrating essential tags with attributes (no comments).">
+  <base href="/examples/">
+  <link rel="icon" href="/assets/favicon.png" type="image/png">
+  <link rel="stylesheet" href="styles.css" media="all">
+  <title>Essential HTML Tags with Attributes</title>
+  <style>
+    :root { --brand: #0b74de; }
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; line-height: 1.5; margin: 1rem; }
+    header, footer { padding: 1rem 0; }
+    nav a[aria-current="page"] { font-weight: 700; }
+    .grid { display: grid; gap: 1rem; grid-template-columns: 1fr 320px; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: .5rem; text-align: left; }
+  </style>
+</head>
+<body data-theme="light">
+  <header role="banner">
+    <h1 id="site-title">Essential HTML Tags Demo</h1>
+    <nav role="navigation" aria-label="Main navigation">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="about.html" rel="noopener noreferrer" target="_blank">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main" role="main">
+    <section id="intro" aria-labelledby="intro-heading">
+      <h2 id="intro-heading">Introduction</h2>
+      <p class="lead" data-example="paragraph">This document demonstrates essential HTML elements each including one or more attributes. Use it as a reference or starting point.</p>
+    </section>
+
+    <section id="media" aria-labelledby="media-heading">
+      <h2 id="media-heading">Media</h2>
+      <figure>
+        <img src="/assets/example-image.jpg" alt="Example scene" width="600" height="360" loading="lazy" decoding="async">
+        <figcaption>Figure: an example image with alt, width, height attributes.</figcaption>
+      </figure>
+      <video controls width="480" preload="metadata" poster="/assets/video-poster.jpg">
+        <source src="/assets/example-video.mp4" type="video/mp4">
+        Your browser does not support the video element.
+      </video>
+      <audio controls preload="none">
+        <source src="/assets/example-audio.mp3" type="audio/mpeg">
+      </audio>
+    </section>
+
+    <section id="text-semantic" aria-labelledby="text-heading">
+      <h2 id="text-heading">Text &amp; Semantic Elements</h2>
+      <p>This paragraph contains <strong id="strong-1">strong</strong>, <em lang="en-US" id="em-1">emphasized</em>, <small>small</small>, and <mark data-note="highlight">highlighted</mark> text.</p>
+      <p>Keyboard input: <kbd>Ctrl</kbd> + <kbd>C</kbd>. Citation: <cite title="Source">A Useful Article</cite>.</p>
+      <p>Abbreviation: <abbr title="HyperText Markup Language">HTML</abbr> — displayed with an abbreviation attribute.</p>
+      <pre><code class="language-js">const greeting = 'hello world';
+console.log(greeting);</code></pre>
+      <p>Inline code: <code>document.querySelector()</code></p>
+    </section>
+
+    <section id="lists" aria-labelledby="lists-heading">
+      <h2 id="lists-heading">Lists</h2>
+      <ul id="feature-list" role="list">
+        <li data-index="1">Semantic tags</li>
+        <li data-index="2">Forms and inputs</li>
+        <li data-index="3">Media elements</li>
+      </ul>
+      <ol start="5">
+        <li value="5">Ordered item five</li>
+        <li>Ordered item six</li>
+      </ol>
+      <dl>
+        <dt>HTML</dt>
+        <dd>HyperText Markup Language</dd>
+      </dl>
+    </section>
+
+    <section id="table" aria-labelledby="table-heading">
+      <h2 id="table-heading">Table</h2>
+      <table aria-describedby="table-desc">
+        <caption id="table-desc">User data table with headers and attributes</caption>
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Role</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Alice</th>
+            <td><a href="mailto:alice@example.com">alice@example.com</a></td>
+            <td>Admin</td>
+          </tr>
+          <tr>
+            <th scope="row">Bob</th>
+            <td><a href="mailto:bob@example.com">bob@example.com</a></td>
+            <td>User</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="form" aria-labelledby="form-heading">
+      <h2 id="form-heading">Form</h2>
+      <form action="/submit" method="post" enctype="application/x-www-form-urlencoded" autocomplete="on" novalidate>
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" placeholder="Your full name" required maxlength="100" aria-required="true">
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="name@example.com" required>
+
+        <label for="age">Age</label>
+        <input id="age" name="age" type="number" min="0" max="120" step="1" value="30">
+
+        <label for="role">Role</label>
+        <select id="role" name="role">
+          <option value="user" selected>User</option>
+          <option value="admin">Admin</option>
+          <option value="guest" disabled>Guest (disabled)</option>
+        </select>
+
+        <label for="bio">Biography</label>
+        <textarea id="bio" name="bio" rows="4" cols="40" placeholder="Tell us a bit about yourself"></textarea>
+
+        <fieldset>
+          <legend>Select interests</legend>
+          <label><input type="checkbox" name="interests" value="design"> Design</label>
+          <label><input type="checkbox" name="interests" value="dev" checked> Development</label>
+        </fieldset>
+
+        <label>Newsletter: <input type="radio" name="newsletter" value="yes" checked> Yes <input type="radio" name="newsletter" value="no"> No</label>
+
+        <input type="hidden" name="token" value="abc123">
+
+        <button type="submit" aria-label="Submit form">Submit</button>
+        <button type="reset">Reset</button>
+      </form>
+    </section>
+
+    <section id="interactive" aria-labelledby="interactive-heading">
+      <h2 id="interactive-heading">Interactive &amp; Misc Elements</h2>
+      <details open>
+        <summary id="summary-1">More details</summary>
+        <p>Details element with an open attribute.</p>
+      </details>
+      <progress id="prog" value="70" max="100">70%</progress>
+      <meter value="0.7" min="0" max="1">70%</meter>
+      <time datetime="2025-10-15">October 15, 2025</time>
+      <address>Contact: <a href="mailto:info@example.com">info@example.com</a></address>
+    </section>
+
+    <section id="semantic-structure" aria-labelledby="semantic-heading">
+      <h2 id="semantic-heading">Semantic Structure</h2>
+      <article id="article-1">
+        <header>
+          <h3>Article title</h3>
+        </header>
+        <p>Article content with <del datetime="2024-01-01">outdated</del> and <ins datetime="2025-01-01">updated</ins> text.</p>
+        <footer>
+          <p>Written by <a href="/authors/jane-doe.html">Jane Doe</a></p>
+        </footer>
+      </article>
+      <aside aria-labelledby="related-heading">
+        <h4 id="related-heading">Related</h4>
+        <p>Related links and notes appear in an aside element.</p>
+      </aside>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <p>&copy; <time datetime="2025-10-15">2025</time> Example Company</p>
+    <nav aria-label="Footer navigation">
+      <a href="privacy.html" rel="nofollow">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+  </footer>
+
+  <noscript>
+    <p>JavaScript is required for the best experience.</p>
+  </noscript>
+
+  <script type="module" src="/scripts/main.js" defer></script>
+  <script nomodule src="/scripts/legacy.js"></script>
+</body>
+</html>
